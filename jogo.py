@@ -39,7 +39,7 @@ executando = True
 #jogador
 imgJogador = obterTextura(jogador_parado_direita[0])
 posX = 10
-posY = 10
+posY = 26
 altura = 20
 largura = 15
 velocidadeJogador = 1
@@ -47,7 +47,15 @@ jogador = Objeto(altura, largura, posX, posY, imgJogador, jogador_parado_direita
 
 #imagem de fundo
 imgFundo = obterTextura("img/fundo/BG.png")
-fundo = Objeto(200, 250, 0, 0, imgFundo, ["img/fundo/BG.png"])
+fundo = Objeto(200, 250, x_inicial, y_inicial, imgFundo, ["img/fundo/BG.png"])
+
+#chao
+imgChao1 = obterTextura("img/chao/2.png")
+chao1 = Objeto(26, x_final, x_inicial, y_inicial, imgChao1, ["img/chao/2.png"])
+
+#cactos
+imgCacto = obterTextura("img/objetos/Cactus (1).png")
+cacto = Objeto(30, 15, 35, 26, imgCacto, ["img/objetos/Cactus (1).png"])
 
 while executando:
     for event in pygame.event.get():
@@ -79,6 +87,8 @@ while executando:
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
 
     fundo.getObjeto()
+    chao1.getObjeto()
+    cacto.getObjeto()
 
     jogador.getObjeto()
     jogador.animacao()

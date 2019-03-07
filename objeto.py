@@ -3,7 +3,7 @@ from textura import obterTextura
 
 class Objeto:
 
-    def __init__(self, altura, largura, posX, posY, textura, imagens, velocidade=0, parado=True, direita=False, esquerda=False):
+    def __init__(self, altura, largura, posX, posY, textura, imagens, velocidade=0, parado=True, direita=False, esquerda=False, gravidade=False):
         self.__altura = altura + posY
         self.__largura = largura + posX
         self.__posX = posX
@@ -16,6 +16,7 @@ class Objeto:
         self.__parado = parado
         self.__direita = direita
         self.__esquerda = esquerda
+        self.__gravidade = gravidade
 
         self.__cont = 0
         self.__aux = 0
@@ -53,6 +54,10 @@ class Objeto:
     def moverPraEsquerda(self):
         self.__posX -= self.__velocidade
         self.__largura -= self.__velocidade
+
+    def moverPraBaixo(self):
+        self.__posY -= self.__velocidade
+        self.__altura -= self.__velocidade
 
     def setParado(self, parado):
         self.__parado = parado
@@ -93,3 +98,6 @@ class Objeto:
 
             if(self.__esquerda):
                 self.moverPraEsquerda()
+
+        if(self.__gravidade):
+            pass
