@@ -3,20 +3,22 @@ from textura import obterTextura
 
 class Objeto:
 
-    aux = 0
-    cont = 0
-
-    def __init__(self, altura, largura, posX, posY, textura, imagens):
-        self.__altura = altura
-        self.__largura = largura
+    def __init__(self, altura, largura, posX, posY, textura, imagens, velocidade=0, parado=True, direita=False, esquerda=False):
+        self.__altura = altura + posY
+        self.__largura = largura + posX
         self.__posX = posX
         self.__posY = posY
         self.__textura = textura
         self.__imagens = imagens
+        self.__velocidade = velocidade
 
         #estado do objeto
-        self.__direita = False
-        self.__esquerda = False
+        self.__parado = parado
+        self.__direita = direita
+        self.__esquerda = esquerda
+
+        self.__cont = 0
+        self.__aux = 0
 
     def getObjeto(self):
         glColor4ub(255, 255, 255, 255)
@@ -45,33 +47,49 @@ class Objeto:
         self.__textura = textura
 
     def moverPraDireita(self):
-        self.__posX += 1
-        self.__largura += 1
+        self.__posX += self.__velocidade
+        self.__largura += self.__velocidade
 
     def moverPraEsquerda(self):
-        self.__posX -= 1
-        self.__largura -= 1
+        self.__posX -= self.__velocidade
+        self.__largura -= self.__velocidade
+
+    def setParado(self, parado):
+        self.__parado = parado
+
+    def getParado(self):
+        return self.__parado
 
     def setDireita(self, direita):
         self.__direita = direita
 
+    def getDireita(self):
+        return self.__direita
+
     def setEsquerda(self, esquerda):
         self.__esquerda = esquerda
 
+    def getEsquerda(self):
+        return self.__esquerda
+
+    def getPosX(self):
+        return self.__posX
+
     def animacao(self):
         tamanho = len(self.__imagens)
-        novaTextura = obterTextura(self.__imagens[Objeto.cont])
+        novaTextura = obterTextura(self.__imagens[self.__cont])
         self.setTextura(novaTextura)
 
-        Objeto.aux += 1
-        if(Objeto.aux > 3):
-            Objeto.aux = 0
-            Objeto.cont += 1
-            if(Objeto.cont >= tamanho):
-                Objeto.cont = 0
+        self.__aux += 1
+        if(self.__aux > 3):
+            self.__aux = 0
+            self.__cont += 1
+            if(self.__cont >= tamanho):
+                self.__cont = 0
 
-        if(self.__direita):
-            self.moverPraDireita()
+        if not self.__parado:
+            if(self.__direita):
+                self.moverPraDireita()
 
-        if(self.__esquerda):
-            self.moverPraEsquerda()
+            if(self.__esquerda):
+                self.moverPraEsquerda()

@@ -4,7 +4,6 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
-from PIL import Image
 
 from textura import obterTextura
 from sprites import *
@@ -16,10 +15,16 @@ FPS = 60
 
 pygame.init()
 display =  pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT), DOUBLEBUF|OPENGL|OPENGLBLIT)
-pygame.display.set_caption("Cowboy Fora da Lei")
+pygame.display.set_caption("titulo")
 clock = pygame.time.Clock()
 
-gluOrtho2D(-100, 100, -100, 100)
+x_inicial = 0
+x_final = 250
+y_inicial = 0
+y_final = 200
+
+glLoadIdentity()
+gluOrtho2D(x_inicial, x_final, y_inicial, y_final)
 glClearColor(1, 1, 1, 1)
 glShadeModel(GL_SMOOTH)
 glMatrixMode(GL_PROJECTION)
@@ -33,11 +38,16 @@ executando = True
 
 #jogador
 imgJogador = obterTextura(jogador_parado_direita[0])
-posX = -95
-posY = -80
-altura = posY + 20
-largura = posX + 15
-jogador = Objeto(altura, largura, posX, posY, imgJogador, jogador_parado_direita)
+posX = 10
+posY = 10
+altura = 20
+largura = 15
+velocidadeJogador = 1
+jogador = Objeto(altura, largura, posX, posY, imgJogador, jogador_parado_direita, velocidadeJogador)
+
+#imagem de fundo
+imgFundo = obterTextura("img/fundo/BG.png")
+fundo = Objeto(200, 250, 0, 0, imgFundo, ["img/fundo/BG.png"])
 
 while executando:
     for event in pygame.event.get():
@@ -47,22 +57,28 @@ while executando:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
                 jogador.setDireita(True)
+                jogador.setParado(False)
                 jogador.setImagens(jogador_correndo_direita)
 
             if event.key == pygame.K_LEFT:
                 jogador.setEsquerda(True)
+                jogador.setParado(False)
                 jogador.setImagens(jogador_correndo_esquerda)
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT:
                 jogador.setDireita(False)
+                jogador.setParado(True)
                 jogador.setImagens(jogador_parado_direita)
 
             if event.key == pygame.K_LEFT:
                 jogador.setEsquerda(False)
+                jogador.setParado(True)
                 jogador.setImagens(jogador_parado_esquerda)
 
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
+
+    fundo.getObjeto()
 
     jogador.getObjeto()
     jogador.animacao()
