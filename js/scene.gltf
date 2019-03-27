@@ -1,0 +1,482 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 587,
+      "max": [
+        49.357101440429688,
+        50.950000762939453,
+        53.073898315429688
+      ],
+      "min": [
+        -52.542900085449219,
+        -50.950000762939453,
+        -48.826099395751953
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 7044,
+      "componentType": 5126,
+      "count": 587,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 587,
+      "max": [
+        1,
+        1,
+        0.049126170575618744,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -0.049126159399747849,
+        1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 587,
+      "max": [
+        1,
+        1
+      ],
+      "min": [
+        -1.4398199556651579e-16,
+        -1.5612509960302284e-16
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 2880,
+      "max": [
+        586
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 14088,
+      "componentType": 5126,
+      "count": 586,
+      "max": [
+        27.783500671386719,
+        27.606500625610352,
+        27.606500625610352
+      ],
+      "min": [
+        -27.429500579833984,
+        -27.606500625610352,
+        -27.606500625610352
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 21120,
+      "componentType": 5126,
+      "count": 586,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 9392,
+      "componentType": 5126,
+      "count": 586,
+      "max": [
+        1,
+        1,
+        0.049126587808132172,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -0.049125447869300842,
+        1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 4696,
+      "componentType": 5126,
+      "count": 586,
+      "max": [
+        1,
+        1
+      ],
+      "min": [
+        -1.0061400131132421e-16,
+        -1.9428900283962279e-16
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 11520,
+      "componentType": 5125,
+      "count": 2880,
+      "max": [
+        585
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "farhad.Guli (https://sketchfab.com/farhad.Guli)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/models/97533e2cc97a46bbb6520f0baa14ec0a",
+      "title": "Earth And Moon"
+    },
+    "generator": "Sketchfab-3.20.7",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 23040,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 9384,
+      "byteOffset": 23040,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 28152,
+      "byteOffset": 32424,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 18768,
+      "byteOffset": 60576,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 79344,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/moon1_baseColor.jpeg"
+    },
+    {
+      "uri": "textures/material1_baseColor.jpeg"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": false,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "moon1",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.59999999999999998
+      }
+    },
+    {
+      "doubleSided": false,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "material1",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 1,
+          "texCoord": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.59999999999999998
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Material2",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Material2",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "Collada visual scene group"
+    },
+    {
+      "children": [
+        4,
+        6,
+        11
+      ],
+      "name": "SketchUp"
+    },
+    {
+      "children": [
+        5
+      ],
+      "matrix": [
+        0.86137209999999997,
+        -0.50797460000000005,
+        5.5511149999999998e-17,
+        0,
+        0.24221190000000001,
+        0.41071839999999998,
+        0.87900160000000005,
+        0,
+        -0.44651049999999998,
+        -0.75714740000000003,
+        0.47681889999999999,
+        0,
+        -210.2653,
+        -336.02210000000002,
+        261.08699999999999,
+        1
+      ],
+      "name": "skp_camera_Last_Saved_SketchUp_View"
+    },
+    {
+      "name": "ID1"
+    },
+    {
+      "children": [
+        7
+      ],
+      "matrix": [
+        -0.42999120000000002,
+        0.0025845500000000001,
+        -0.00092548040000000004,
+        0,
+        -0.002582558,
+        -0.42999120000000002,
+        -0.00092548040000000004,
+        0,
+        -0.00093102419999999998,
+        -0.00091990319999999998,
+        0.42999799999999999,
+        0,
+        -186.29329999999999,
+        -0.1029264,
+        68.063460000000006,
+        1
+      ],
+      "name": "sphere"
+    },
+    {
+      "children": [
+        8
+      ],
+      "name": "skp9E"
+    },
+    {
+      "children": [
+        9
+      ],
+      "name": "instance_0"
+    },
+    {
+      "children": [
+        10
+      ],
+      "name": "ball"
+    },
+    {
+      "mesh": 0,
+      "name": "Material2"
+    },
+    {
+      "children": [
+        12
+      ],
+      "matrix": [
+        -2.5313209999999999e-12,
+        2.5,
+        0,
+        0,
+        -2.5,
+        -2.5313209999999999e-12,
+        0,
+        0,
+        0,
+        0,
+        2.5,
+        0,
+        4.5474739999999997e-13,
+        -0.4425,
+        69.016249999999999,
+        1
+      ],
+      "name": "sphere"
+    },
+    {
+      "children": [
+        13
+      ],
+      "name": "skp4B"
+    },
+    {
+      "children": [
+        14
+      ],
+      "name": "instance_1"
+    },
+    {
+      "children": [
+        15
+      ],
+      "name": "Earth"
+    },
+    {
+      "mesh": 1,
+      "name": "Material2"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    }
+  ]
+}
+
