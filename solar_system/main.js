@@ -7,6 +7,8 @@ var moonData = constructPlanetData(29.5, 0, 2, "moon", "img/moon.jpg", 0.2, plan
 var marsData = constructPlanetData(365.2564, 0.015, 35, "mars", "img/mars.jpeg", 0.9, planetSegments);
 var jupyterData = constructPlanetData(365.2564, 0.015, 42, "jupyter", "img/jupyter.jpeg", 3, planetSegments);
 var saturnData = constructPlanetData(365.2564, 0.015, 50, "saturn", "img/saturn.jpg", 1.5, planetSegments);
+var uranusData = constructPlanetData(365.2564, 0.015, 55, "uranus", "img/uranus.jpeg", 1, planetSegments);
+var neptuneData = constructPlanetData(365.2564, 0.015, 60, "neptune", "img/neptune.jpeg", 1, planetSegments);
 
 var orbitData = {value: 200, runOrbit: true, runRotation: true};
 var clock = new THREE.Clock();
@@ -147,6 +149,18 @@ function createVisibleOrbits() {
         , 0xffffff
         , "saturnOrbit"
         , 0);
+    uranusOrbit = getRing(uranusData.distanceFromAxis + orbitWidth
+        , uranusData.distanceFromAxis - orbitWidth
+        , 320
+        , 0xffffff
+        , "uranusOrbit"
+        , 0);
+    neptuneOrbit = getRing(neptuneData.distanceFromAxis + orbitWidth
+        , neptuneData.distanceFromAxis - orbitWidth
+        , 320
+        , 0xffffff
+        , "neptuneOrbit"
+        , 0);
 }
 
 /**
@@ -280,6 +294,12 @@ function update(renderer, scene, camera, controls) {
     movePlanet(earth, earthData, time);
     movePlanet(ring, earthData, time, true);
 
+    movePlanet(uranus, uranusData, time);
+    movePlanet(ring, uranusData, time, true);
+
+    movePlanet(neptune, neptuneData, time);
+    movePlanet(ring, neptuneData, time, true);
+
     movePlanet(saturn, saturnData, time);
     movePlanet(ring, saturnData, time, true);
     moveMoon(moon, earth, moonData, time);
@@ -361,7 +381,7 @@ function init() {
     sprite.scale.set(70, 70, 1.0);
     sun.add(sprite); // This centers the glow at the sun.
 
-    // Create the Earth, the Moon, and a ring around the earth.
+    // Create the planets
     mercury = loadTexturedPlanet(mercuryData, mercuryData.distanceFromAxis, 0, 0);
     venus = loadTexturedPlanet(venusData, venusData.distanceFromAxis, 0, 0);
     mars = loadTexturedPlanet(marsData, marsData.distanceFromAxis, 0, 0);
@@ -370,6 +390,8 @@ function init() {
     ring = getTube(3, 0.2, 480, 0x757064, "ring", earthData.distanceFromAxis);
     jupyter = loadTexturedPlanet(jupyterData, jupyterData.distanceFromAxis, 0, 0);
     saturn = loadTexturedPlanet(saturnData, saturnData.distanceFromAxis, 0, 0);
+    uranus = loadTexturedPlanet(uranusData, uranusData.distanceFromAxis, 0, 0);
+    neptune = loadTexturedPlanet(neptuneData, neptuneData.distanceFromAxis, 0, 0);
 
     // Create the visible orbit that the Earth uses.
     createVisibleOrbits();
