@@ -8,7 +8,20 @@ document.body.appendChild( renderer.domElement );
 var controls = new THREE.OrbitControls( camera, renderer.domElement );
 
 // Sun (spotlight).
-//var textureLoader = new THREE.TextureLoader();
+
+//novosol
+
+var lavaTexture = new THREE.ImageUtils.loadTexture( 'images/lava.jpg');
+lavaTexture.wrapS = lavaTexture.wrapT = THREE.RepeatWrapping; 
+// multiplier for distortion speed 		
+var baseSpeed = 0.02;
+// number of times to repeat texture in each direction
+var repeatS = repeatT = 4.0;
+
+//
+
+
+var textureLoader = new THREE.TextureLoader();
 var sun = new THREE.SphereBufferGeometry(3, 50, 50);
 var sunLight = new THREE.PointLight(0xffffff); 
 sunLight.position.set(0, 0, 0); 
@@ -17,15 +30,35 @@ sunLight.shadowMapWidth = 1024;
 sunLight.shadowMapHeight = 1024; 
 sunLight.shadowCameraNear = 500; 
 sunLight.shadowCameraFar = 4000;
-//sunLight.add(new THREE.Mesh(sun, new THREE.MeshPhongMaterial({map: textureLoader.load('js/solar_system/textures/sun.jpg') })));
-sunLight.add(new THREE.Mesh(sun, new THREE.MeshBasicMaterial({ color: 0xffa500 })));
+sunLight.add(new THREE.Mesh(sun, new THREE.MeshPhongMaterial({map: textureLoader.load('js/solar_system/textures/sun.jpg') })));
+//sunLight.add(new THREE.Mesh(sun, new THREE.MeshBasicMaterial({ color: 0xffa500 })));
 sunLight.shadowCameraFov = 30;
 scene.add(sunLight);
 
 // Extra lighting.
-var light = new THREE.PointLight( 0xffffff, 0.5, 100 );
-light.position.set(0, 0, 50);
-scene.add( light );
+var light1 = new THREE.PointLight( 0xffffff, 0.5 , 100 );
+light1.position.set(0, 0, 60);
+scene.add( light1 );
+var light2 = new THREE.PointLight( 0xffffff, 0.5 , 100 );
+light2.position.set(0, 0, -60);
+scene.add( light2 );
+
+var light3 = new THREE.PointLight( 0xffffff, 0.5 , 100 );
+light3.position.set(10, 0, 0);
+scene.add( light3 );
+
+var light4 = new THREE.PointLight( 0xffffff, 0.5 , 100 );
+light4.position.set(-10, 0, 0);
+scene.add( light4 );
+
+var light5 = new THREE.PointLight( 0xffffff, 0.5, 100 );
+light5.position.set(0, 10, 0);
+scene.add( light5 );
+
+var light6 = new THREE.PointLight( 0xffffff, 0.5 , 100 );
+light6.position.set(0, -10, 0);
+scene.add( light6 );
+
 
 // mercury.
 //var texture = new THREE.ImageUtils.loadTexture('js/solar_system/textures/mercury1_baseColor.jpeg');
