@@ -16,17 +16,6 @@ var planets = [];
 var orbitData = { value: 200, runOrbit: true, runRotation: true };
 var clock = new THREE.Clock();
 
-/**
- * This eliminates the redundance of having to type property names for a planet object.
- * @param {type} myOrbitRate decimal
- * @param {type} myRotationRate decimal
- * @param {type} myDistanceFromAxis decimal
- * @param {type} myName string
- * @param {type} myTexture image file path
- * @param {type} mySize decimal
- * @param {type} mySegments integer
- * @returns {constructPlanetData.mainAnonym$0}
- */
 function constructPlanetData(myOrbitRate, myRotationRate, myDistanceFromAxis, myName, myTexture, mySize, mySegments) {
     return {
         orbitRate: myOrbitRate
@@ -39,16 +28,6 @@ function constructPlanetData(myOrbitRate, myRotationRate, myDistanceFromAxis, my
     };
 }
 
-/**
- * create a visible ring and add it to the scene.
- * @param {type} size decimal
- * @param {type} innerDiameter decimal
- * @param {type} facets integer
- * @param {type} myColor HTML color
- * @param {type} name string
- * @param {type} distanceFromAxis decimal
- * @returns {THREE.Mesh|myRing}
- */
 function getRing(size, innerDiameter, facets, myColor, name, distanceFromAxis) {
     var ring1Geometry = new THREE.RingGeometry(size, innerDiameter, facets);
     var ring1Material = new THREE.MeshBasicMaterial({ color: myColor, side: THREE.DoubleSide });
@@ -60,18 +39,7 @@ function getRing(size, innerDiameter, facets, myColor, name, distanceFromAxis) {
     return myRing;
 }
 
-/**
- * Used to create a three dimensional ring. This takes more processing power to 
- * run that getRing(). So use this sparingly, such as for the outermost ring of
- * Saturn.
- * @param {type} size decimal
- * @param {type} innerDiameter decimal
- * @param {type} facets integer
- * @param {type} myColor HTML color
- * @param {type} name string
- * @param {type} distanceFromAxis decimal
- * @returns {THREE.Mesh|myRing}
- */
+
 function getTube(size, innerDiameter, facets, myColor, name, distanceFromAxis) {
     var ringGeometry = new THREE.TorusGeometry(size, innerDiameter, facets, facets);
     var ringMaterial = new THREE.MeshBasicMaterial({ color: myColor, side: THREE.DoubleSide });
@@ -83,13 +51,7 @@ function getTube(size, innerDiameter, facets, myColor, name, distanceFromAxis) {
     return myRing;
 }
 
-/**
- * Simplifies the creation of materials used for visible objects.
- * @param {type} type
- * @param {type} color
- * @param {type} myTexture
- * @returns {THREE.MeshStandardMaterial|THREE.MeshLambertMaterial|THREE.MeshPhongMaterial|THREE.MeshBasicMaterial}
- */
+
 function getMaterial(type, color, myTexture) {
     var materialOptions = {
         color: color === undefined ? 'rgb(255, 255, 255)' : color,
@@ -110,10 +72,7 @@ function getMaterial(type, color, myTexture) {
     }
 }
 
-/**
- *  Draws all of the orbits to be shown in the scene.
- * @returns {undefined}
- */
+
 function createVisibleOrbits() {
     var orbitWidth = 0.01;
     mercuryOrbit = getRing(mercuryData.distanceFromAxis + orbitWidth
@@ -166,13 +125,6 @@ function createVisibleOrbits() {
         , 0);
 }
 
-/**
- * Simplifies the creation of a sphere.
- * @param {type} material THREE.SOME_TYPE_OF_CONSTRUCTED_MATERIAL
- * @param {type} size decimal
- * @param {type} segments integer
- * @returns {getSphere.obj|THREE.Mesh}
- */
 function getSphere(material, size, segments) {
     var geometry = new THREE.SphereGeometry(size, segments, segments);
     var obj = new THREE.Mesh(geometry, material);
@@ -181,15 +133,7 @@ function getSphere(material, size, segments) {
     return obj;
 }
 
-/**
- * Creates a planet and adds it to the scene.
- * @param {type} myData data for a planet object
- * @param {type} x integer
- * @param {type} y integer
- * @param {type} z integer
- * @param {type} myMaterialType string that is passed to getMaterial()
- * @returns {getSphere.obj|THREE.Mesh|loadTexturedPlanet.myPlanet}
- */
+
 function loadTexturedPlanet(myData, x, y, z, myMaterialType) {
     var myMaterial;
     var passThisTexture;
@@ -397,7 +341,7 @@ function init() {
     mars = loadTexturedPlanet(marsData, marsData.distanceFromAxis, 0, 0);
     earth = loadTexturedPlanet(earthData, earthData.distanceFromAxis, 0, 0);
     moon = loadTexturedPlanet(moonData, moonData.distanceFromAxis, 0, 0);
-    ring = getTube(3, 0.2, 480, 0x757064, "ring", earthData.distanceFromAxis);
+    ring = getTube(3, 0.2, 480, 0x757064, "ring", saturnData.distanceFromAxis);
     jupyter = loadTexturedPlanet(jupyterData, jupyterData.distanceFromAxis, 0, 0);
     saturn = loadTexturedPlanet(saturnData, saturnData.distanceFromAxis, 0, 0);
     uranus = loadTexturedPlanet(uranusData, uranusData.distanceFromAxis, 0, 0);
@@ -409,7 +353,7 @@ function init() {
     subtitle = document.getElementById('subtitle');
     description = document.getElementById('description')
 
-    // Create the visible orbit that the Earth uses.
+    // Create the visible orbit that the Planets uses.
     createVisibleOrbits();
 
     
