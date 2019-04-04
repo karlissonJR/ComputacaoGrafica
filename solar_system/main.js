@@ -352,9 +352,9 @@ function init() {
     var path = 'cubemap/';
     var format = '.jpg';
     var urls = [
-        path + 'px' + format, path + 'nx' + format,
-        path + 'py' + format, path + 'ny' + format,
-        path + 'pz' + format, path + 'nz' + format
+        path + 'nx' + format, path + 'nx' + format,
+        path + 'nx' + format, path + 'nx' + format,
+        path + 'nx' + format, path + 'nx' + format
     ];
     var reflectionCube = new THREE.CubeTextureLoader().load(urls);
     reflectionCube.format = THREE.RGBFormat;
@@ -371,7 +371,9 @@ function init() {
     scene.add(ambientLight);
 
     // Create the sun.
-    var sunMaterial = getMaterial("basic", "rgb(255, 255, 0)");
+    var textureLoader = new THREE.TextureLoader();
+    //var sunMaterial = getMaterial("basic", "rgb(255, 255, 0)");
+    var sunMaterial = new THREE.MeshPhongMaterial({ map: textureLoader.load('img/sun.jpg')});
     sun = getSphere(sunMaterial, 16, 48);
     scene.add(sun);
 
